@@ -1,3 +1,25 @@
+
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Vignesh@95" -p 1433:1433 -d --name mssqllinux microsoft/mssql-server-linux
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://www.studytrails.com/devops/kubernetes/install-minikube-and-docker-with-virtualbox-on-windows-10-home/
 
 
@@ -82,7 +104,7 @@ This command stops a running container
 
 Usage: docker kill <container id>
 
-This command kills the container by stopping its execution immediately. The difference between ‘docker kill’ and ‘docker stop’ is that ‘docker stop’ gives the container time to shutdown gracefully, in situations when it is taking too much time for getting the container to stop, one can opt to kill it
+This command kills the container by stopping its execution immediately. The difference between â€˜docker killâ€™ and â€˜docker stopâ€™ is that â€˜docker stopâ€™ gives the container time to shutdown gracefully, in situations when it is taking too much time for getting the container to stop, one can opt to kill it
 ---------------------------------------------
 15.docker commit
 
@@ -123,7 +145,7 @@ clean install dockerfile:build
 ------------------------------------------
 docker run -h 192.168.99.100 -p 6060:6060 -t my-repo/boasample  --name my-repo-image1:latest
 ------------------------------
-docker run --name boadb -e MYSQL_ROOT_PASSWORD=vignesh –e MYSQL_DATABASE=boadb –e MYSQL_USER=root  -p 3306:3306 mysql/mysql-server:latest
+docker run --name boadb -e MYSQL_ROOT_PASSWORD=vignesh â€“e MYSQL_DATABASE=boadb â€“e MYSQL_USER=root  -p 3306:3306 mysql/mysql-server:latest
 ---------------------------------------------------
 docker run -h 192.168.99.100 -p 7070:7070 -t my-repo/boakyc  --name my-repo-image2:latest
 
