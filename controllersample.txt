@@ -1,0 +1,56 @@
+public class CustomerController : ControllerBase
+    {
+        private readonly ICustomerRepository _customerRepository;
+
+        public CustomerController(ICustomerRepository customerRepository)
+        {
+            _customerRepository = customerRepository;
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var customers = _customerRepository.GetCustomers();
+            return new OkObjectResult(customers);
+        }
+
+        [HttpGet("{id}", Name = "Get")]
+        public IActionResult Get(long id)
+        {
+            var customer = _customerRepository.GetCustomerById(id);
+            return new OkObjectResult(customer);
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] Customer customer)
+        {
+            using (var scope = new TransactionScope())
+            {
+                _customerRepository.AddCustomer(customer);
+                scope.Complete();
+                return CreatedAtAction(nameof(Get), new { id = customer.CustomerId }, customer);
+            }
+        }
+
+        [HttpPut]
+        public IActionResult Put([FromBody] Customer customer)
+        {
+            if (customer != null)
+            {
+                using (var scope = new TransactionScope())
+                {
+                    _customerRepository.UpdateCustomer(customer);
+                    scope.Complete();
+                    return new OkResult();
+                }
+            }
+            return new NoContentResult();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id)
+        {
+            _customerRepository.DeleteCustomer(id);
+            return new OkResult();
+        }
+    }
