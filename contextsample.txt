@@ -11,3 +11,14 @@
        .HasMany(c => c.Accounts)
        .WithOne(e => e.Customer);
         }
+        
+        
+        
+        
+        
+        //startup.cs
+        
+         services.AddDbContext<CustomerContext>(o => o.UseSqlServer(Configuration.GetConnectionString("CustomerDBConnString")));
+        
+        
+        
