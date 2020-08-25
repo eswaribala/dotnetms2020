@@ -1,0 +1,3 @@
+"ConnectionStrings": {
+        "CustomerDBConnString": "Data Source=sqlcustomerserverService,1433;Initial Catalog=CustomerDB;User ID=sa;Password=Vignesh@95"
+    }
