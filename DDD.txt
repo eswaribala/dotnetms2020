@@ -1,0 +1,20 @@
+Domain  Banking
+
+Sub Domains Customer, Transaction, Forex, Trading, Loan, Insurance
+
+Sub Domain Customer
+
+Core Sub Domain --> add, amendments, remove, requests
+
+Add Customer
+
+Supporting Sub Domain - KYC
+Know Your Customer
+Upload the documents---> passport, driving license, SSC
+
+1) Validate the docs
+2) Relationship Manager
+3) Back Ground Team
+
+
+Generic Sub Domain
