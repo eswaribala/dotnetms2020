@@ -1,0 +1,13 @@
+
+        public CustomerContext(DbContextOptions<CustomerContext> options) : base(options)
+        {
+            this.Database.EnsureCreated();
+        }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Customer>()
+       .HasMany(c => c.Accounts)
+       .WithOne(e => e.Customer);
+        }
