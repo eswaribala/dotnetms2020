@@ -1,0 +1,47 @@
+public class CustomerRepository : ICustomerRepository
+    {
+        private readonly CustomerContext _dbContext;
+
+        public CustomerRepository(CustomerContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public void AddCustomer(Customer customer)
+        {
+            _dbContext.Add(customer);
+            Save();
+        }
+
+        public void DeleteCustomer(long customerId)
+        {
+            var customer = _dbContext.Customers.Find(customerId);
+            _dbContext.Customers.Remove(customer);
+            Save();
+        }
+
+        
+
+        public Customer GetCustomerById(long customerId)
+        {
+            return _dbContext.Customers.Find(customerId);
+        }
+
+
+        public IEnumerable<Customer> GetCustomers()
+        {
+            return _dbContext.Customers.ToList();
+        }
+
+        
+
+        public void Save()
+        {
+            _dbContext.SaveChanges();
+        }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            _dbContext.Entry(customer).State = EntityState.Modified;
+            Save();
+        }
