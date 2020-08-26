@@ -2,24 +2,6 @@
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Vignesh@95" -p 1433:1433 -d --name mssqllinux microsoft/mssql-server-linux
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 https://www.studytrails.com/devops/kubernetes/install-minikube-and-docker-with-virtualbox-on-windows-10-home/
 
 
