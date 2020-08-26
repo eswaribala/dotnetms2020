@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  shoppingdenproductapi:
+    image: ${DOCKER_REGISTRY-}shoppingdenproductapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - sqlservershoppingService
+  sqlservershoppingService:  
+    image: microsoft/mssql-server-linux 
+    hostname: 'sqlservershoppingService'  
+    environment:  
+      ACCEPT_EULA: Y  
+      SA_PASSWORD: "Vignesh@95"  
+    volumes:  
+      - ./shoppingapi:/var/opt/mssql/data  
+    ports:  
+      - '1403:1433'  
+    expose:  
+      - 1403 
