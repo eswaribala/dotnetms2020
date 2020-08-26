@@ -5,6 +5,9 @@ docker run -d --hostname my-rabbit --name some-rabbit -e RABBITMQ_DEFAULT_USER=u
 
 docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
 
+docker run  -p 8500:8500 -p 8600:8600/udp --name=consul consul:latest agent -server -bootstrap -ui -client=0.0.0.0
+
+
 
 https://www.studytrails.com/devops/kubernetes/install-minikube-and-docker-with-virtualbox-on-windows-10-home/
 
