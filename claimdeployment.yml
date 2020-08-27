@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta1  
+kind: Deployment  
+metadata:  
+  name: claim-api  
+spec:  
+  replicas: 2  
+  template:  
+    metadata:  
+      labels:  
+        app: claim-api  
+    spec:  
+      containers:  
+      - name: claim-api  
+        image: claimregistry.azurecr.io/v1  
+        ports:  
+        - containerPort: 80
+      
+      imagePullSecrets:  
+      - name: claim-key 
+---  
+apiVersion: v1  
+kind: Service  
+metadata:  
+  name: claim-api  
+spec:  
+  type: LoadBalancer  
+  ports:  
+  - port: 80  
+  selector:  
+    app: claim-api 
